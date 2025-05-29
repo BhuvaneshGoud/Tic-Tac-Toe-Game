@@ -1,0 +1,484 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('img-1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Overlay to soften background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: -1;
+  transition: background-color 0.3s ease;
+}
+
+/* Container with slight transparency */
+.container {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Support */
+body.dark-mode {
+  color: #fff;
+}
+
+body.dark-mode::before {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .container {
+  background-color: rgba(30, 30, 30, 0.95);
+  color: #fff;
+}
+
+body.dark-mode .profile-dropdown {
+  background-color: #1e1e1e;
+  border-color: #444;
+  color: #fff;
+}
+
+body.dark-mode .dropdown-link {
+  color: #ddd;
+}
+
+body.dark-mode .dropdown-link:hover {
+  color: #90caf9;
+}
+
+/* Title */
+.title {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* Start Button */
+.start-btn {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #4caf50;
+  color: rgb(12, 12, 12);
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Board Wrapper */
+.board-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Game Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+  background: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+/* Individual Cell */
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: #c48c8c;
+  border: 2px solid #000000;
+  font-size: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+  border-radius: 5px;
+}
+
+.cell:hover {
+  background-color: #f0f0f0;
+}
+
+/* Result Message Overlay */
+.result-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Game Status */
+.status {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+/* Reset Button */
+.reset-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background-color: #0b7dda;
+}
+
+/* Profile Icon in Top Right */
+.profile-container {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ccc;
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 10px;
+  border-radius: 5px;
+  min-width: 120px;
+  color: #333;
+  text-align: center;
+      color: rgb(114, 160, 95);
+}
+
+.profile-dropdown.show {
+  display: block;
+}
+
+.dropdown-link {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 5px 0;
+}
+
+.dropdown-link:hover {
+  color: #21f398;
+}
+
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('img-1.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.85);
+      z-index: -1;
+    }
+
+    .settings-container {
+      max-width: 400px;
+      width: 90%;
+      background: rgba(225, 221, 221, 0.95);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      color: rgb(49, 180, 79);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .setting-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .setting-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .slider {
+      width: 100%;
+    }
+
+    .toggle-switch {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Theme Toggle Switch Style */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider-switch {
+      position: absolute;
+      cursor: pointer;
+      background-color: #249887;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: 0.4s;
+      border-radius: 24px;
+    }
+
+    .slider-switch:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: rgb(12, 12, 12);
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    .switch input:checked + .slider-switch {
+      background-color: #2196f3;
+    }
+
+    .switch input:checked + .slider-switch:before {
+      transform: translateX(26px);
+    }
+
+    /* Buttons */
+    #muteBtn,
+    .start-btn {
+      padding: 10px 20px;
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    #muteBtn:hover,
+    .start-btn:hover {
+      background-color: #0b7dda;
+      transform: scale(1.05);
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    body.dark-mode::before {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    body.dark-mode .settings-container {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    }
+
+    body.dark-mode .slider-switch {
+      background-color: #555;
+    }
+
+    body.dark-mode .switch input:checked + .slider-switch {
+      background-color: #4caf50;
+    }
+
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('img-1.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.85);
+      z-index: -1;
+      transition: background-color 0.3s ease;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .profile-card {
+      margin: 20px 0;
+    }
+
+    .profile-icon-medium {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid #ccc;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .start-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .start-btn:hover {
+      background-color: #0b7dda;
+      transform: scale(1.05);
+    }
+
+    /* Dark mode styles */
+    .dark-mode {
+      color: #ffffff;
+    }
+
+    .dark-mode body::before {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .dark-mode .container {
+      background-color: #1e1e1e;
+      color: #ffffff;
+    }
+
+    .dark-mode {
+  background-color: #121212;
+  color: #fff;
+}
+.dark-mode .container {
+  background-color: rgba(30, 30, 30, 0.95);
+}
+.dark-mode .start-btn,
+.dark-mode .reset-btn {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+  background-color: #121212;
+  color: #000; /* <-- Changed to black */
+}
+
+body.dark-mode .container {
+  background-color: rgba(30, 30, 30, 0.95);
+  color: #000; /* <-- Changed to black */
+}
+
+body.dark-mode .start-btn,
+body.dark-mode .reset-btn {
+  background-color: #333;
+  color: #000; /* <-- Changed to black */
+}
+
+body.dark-mode .profile-dropdown {
+  background-color: #1e1e1e;
+  border-color: #444;
+  color: #000; /* <-- Changed to black */
+}
+
+body.dark-mode .dropdown-link {
+  color: #000; /* <-- Changed to black */
+}
+
+body.dark-mode .dropdown-link:hover {
+  color: #2196f3;
+}

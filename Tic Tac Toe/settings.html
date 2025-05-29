@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+  // Apply dark mode immediately if previously set
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+  <div class="settings-container">
+    <h2>Settings</h2>
+
+    <!-- Sound Adjustment -->
+    <div class="setting-group">
+      <label for="volume">Sound Volume:</label>
+      <input type="range" id="volume" class="slider" min="0" max="100" value="50">
+      <button onclick="toggleMute()" id="muteBtn">Mute</button>
+    </div>
+
+    <!-- Theme Toggle -->
+    <div class="setting-group">
+      <label>Theme Mode:</label>
+      <div class="toggle-switch">
+        <label class="switch">
+          <input type="checkbox" id="themeToggle">
+          <span class="slider-switch"></span>
+        </label>
+        <span>Dark Mode</span>
+      </div>
+    </div>
+
+    <a href="index.html" class="start-btn">Back to Home</a>
+  </div>
+
+  <script>
+    const muteBtn = document.getElementById('muteBtn');
+    const volumeSlider = document.getElementById('volume');
+    let isMuted = false;
+
+    function toggleMute() {
+      isMuted = !isMuted;
+      volumeSlider.value = isMuted ? 0 : 50;
+      muteBtn.textContent = isMuted ? 'Unmute' : 'Mute';
+    }
+
+    const themeToggle = document.getElementById('themeToggle');
+themeToggle.checked = localStorage.getItem('theme') === 'dark';
+
+themeToggle.addEventListener('change', function () {
+  if (this.checked) {
+    document.documentElement.classList.add('dark-mode');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.classList.remove('dark-mode');
+    localStorage.setItem('theme', 'light');
+  }
+});
+  </script>
+</body>
+</html>

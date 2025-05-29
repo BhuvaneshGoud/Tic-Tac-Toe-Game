@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+  // Apply dark mode immediately if previously set
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Profile Icon Top Right -->
+  <div class="profile-container">
+    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile" class="profile-icon" id="profileIcon" />
+    
+    <div class="profile-dropdown" id="profileDropdown">
+     <a href="profile.html" class="dropdown-link">View Profile</a>
+     <a href="settings.html" class="dropdown-link">Settings</a>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="title">Tic-Tac-Toe</div>
+    <a href="game.html" class="start-btn">Tap to Start</a>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

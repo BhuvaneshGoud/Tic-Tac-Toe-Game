@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+  // Apply dark mode immediately if previously set
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="style.css" />
+  
+
+</head>
+<body>
+  <div class="container">
+    <h1>User Profile</h1>
+    <div class="profile-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile Picture" class="profile-icon-medium">
+      <h2>Guest User</h2>
+      <p>Email: guest@example.com</p>
+      <p>Status: Visitor</p>
+    </div>
+    <a href="index.html" class="start-btn">Back to Home</a>
+  </div>
+</body>
+</html>
